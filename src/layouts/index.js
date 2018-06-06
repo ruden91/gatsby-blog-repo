@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 // @flow
 import React from 'react'
 import Link from 'gatsby-link'
@@ -6,7 +7,8 @@ import Header from 'components/Header/Header'
 import SearchList from 'components/Search/SearchList'
 import Footer from 'components/Footer/Footer'
 import SideMenu from 'components/SideMenu'
-import Sidebar from 'react-side-bar'
+import Sidebar from 'components/Sidebar/Sidebar'
+// import Sidebar from 'react-side-bar'
 import '../styles/normalize'
 import LayoutMain from 'components/LayoutMain'
 
@@ -86,15 +88,9 @@ class Template extends React.Component<Props, State> {
     return (
       <div className="wrapper">
         <Sidebar
-          bar={<SideMenu onCloseSidebar={this.closeSidebar} />}
-          mode="push"
-          duration={500}
           opened={opened}
-          size={320}
-          onOpen={this.openSidebar}
-          onClose={this.closeSidebar}
-          fx="ease-in-out"
-          touch={false}
+          onCloseSidebar={this.closeSidebar}
+          bar={<SideMenu onCloseSidebar={this.closeSidebar} />}
         >
           <Header
             toggleRotate={toggleRotate}
@@ -107,6 +103,17 @@ class Template extends React.Component<Props, State> {
           <LayoutMain>{children()}</LayoutMain>
           <Footer />
         </Sidebar>
+        {/* <Sidebar
+          mode="push"
+          duration={500}
+          opened={opened}
+          size={320}
+          onOpen={this.openSidebar}
+          onClose={this.closeSidebar}
+          fx="ease-in-out"
+          touch={false}
+        >
+        </Sidebar> */}
       </div>
     )
   }
