@@ -25,7 +25,7 @@ export default class SEO extends Component {
 
     const schemaOrgJSONLD = [
       {
-        '@context': 'https://ruden91.github.io',
+        '@context': 'http://schema.org',
         '@type': 'WebSite',
         url: blogURL,
         name: title,
@@ -36,7 +36,7 @@ export default class SEO extends Component {
     if (postSEO) {
       schemaOrgJSONLD.push([
         {
-          '@context': 'https://ruden91.github.io',
+          '@context': 'http://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
             {
@@ -51,7 +51,7 @@ export default class SEO extends Component {
           ],
         },
         {
-          '@context': 'https://ruden91.github.io',
+          '@context': 'http://schema.org',
           '@type': 'BlogPosting',
           url: blogURL,
           name: title,
@@ -70,6 +70,10 @@ export default class SEO extends Component {
         {/* General tags */}
         <meta name="description" content={description} />
         <meta name="image" content={image} />
+        <meta
+          name="google-site-verification"
+          content="veQ_2qF4bcQfuUa_J_rIFwk4HDLQ32ZQfDP-vmWhXy8"
+        />
 
         {/* Schema.org tags */}
         <script type="application/ld+json">

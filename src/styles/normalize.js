@@ -36,7 +36,9 @@ injectGlobal`
   label {
     font-size: 0;
   }
-
+  a {
+    text-decoration: none;
+  }
   input[type="submit"],
   input[type="reset"],
   input[type="button"],

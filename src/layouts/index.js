@@ -31,8 +31,6 @@ class Template extends React.Component<Props, State> {
       toggleRotate: false,
     }
     this.Sidebar
-    this.openSidebar = this.openSidebar.bind(this)
-    this.closeSidebar = this.closeSidebar.bind(this)
   }
 
   handleSearchButton = () => {
@@ -56,13 +54,13 @@ class Template extends React.Component<Props, State> {
     })
   }
 
-  openSidebar() {
+  openSidebar = () => {
     this.setState({
       opened: true,
     })
   }
 
-  closeSidebar() {
+  closeSidebar = () => {
     this.setState({
       opened: false,
     })
@@ -103,17 +101,6 @@ class Template extends React.Component<Props, State> {
           <LayoutMain>{children()}</LayoutMain>
           <Footer />
         </Sidebar>
-        {/* <Sidebar
-          mode="push"
-          duration={500}
-          opened={opened}
-          size={320}
-          onOpen={this.openSidebar}
-          onClose={this.closeSidebar}
-          fx="ease-in-out"
-          touch={false}
-        >
-        </Sidebar> */}
       </div>
     )
   }

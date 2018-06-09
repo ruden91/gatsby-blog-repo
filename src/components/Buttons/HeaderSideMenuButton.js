@@ -22,9 +22,6 @@ const StyledSideMenuBars = styled.span`
   height: 13px;
   transition: all 0.3s ease-in-out;
 `
-const StyledSideMenuTitle = styled.span`
-  display: ${props => (props.isMobile ? 'none' : 'inline-block')};
-`
 const StyledSideMenuBar = styled.span`
   position: absolute;
   left: 0;
@@ -73,7 +70,7 @@ const SearchButton = ({ onOpenSidebar, isMobile }) => (
       <StyledSideMenuBar />
       <StyledSideMenuBar />
     </StyledSideMenuBars>
-    <StyledSideMenuTitle isMobile={isMobile}>MENU</StyledSideMenuTitle>
+    <span>MENU</span>
   </StyledSideMenuButton>
 )
 

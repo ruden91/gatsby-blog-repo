@@ -3,8 +3,10 @@ import UserCard from './UserCard'
 import Link from 'gatsby-link'
 import classNames from 'classnames'
 import styled from 'styled-components'
-
-const StyledNav = styled.nav``
+import { Scrollbars } from 'react-custom-scrollbars'
+const StyledNav = styled.nav`
+  height: 100%;
+`
 
 const StyledNavHeader = styled.header`
   height: 70px;
@@ -118,36 +120,38 @@ export default class SideMenu extends Component {
     const { onCloseSidebar } = this.props
     return (
       <StyledNav>
-        <StyledNavHeader>
-          <StyledNavHeaderLeft>
-            <img
-              src="https://www.codewars.com/users/reactorRD/badges/micro"
-              alt="codewars-badge"
-            />
-          </StyledNavHeaderLeft>
-          <StyledNavHeaderRight>
-            <button onClick={onCloseSidebar}>CLOSE</button>
-          </StyledNavHeaderRight>
-        </StyledNavHeader>
-        <ul>
-          <li>
-            <UserCard username="ruden91" />
-          </li>
-          {this.state.sideItems.map(value => (
-            <StyledSideMenuItem
-              key={Object.keys(value)[0]}
-              className={`${
-                value[Object.keys(value)[0]] === this.path ? 'is-active' : ''
-              } `}
-            >
-              <span>
-                <Link to={value[Object.keys(value)[0]]}>
-                  {Object.keys(value)[0]}
-                </Link>
-              </span>
-            </StyledSideMenuItem>
-          ))}
-        </ul>
+        <Scrollbars>
+          <StyledNavHeader>
+            <StyledNavHeaderLeft>
+              <img
+                src="https://www.codewars.com/users/reactorRD/badges/micro"
+                alt="codewars-badge"
+              />
+            </StyledNavHeaderLeft>
+            <StyledNavHeaderRight>
+              <button onClick={onCloseSidebar}>CLOSE</button>
+            </StyledNavHeaderRight>
+          </StyledNavHeader>
+          <ul>
+            <li>
+              <UserCard username="ruden91" />
+            </li>
+            {this.state.sideItems.map(value => (
+              <StyledSideMenuItem
+                key={Object.keys(value)[0]}
+                className={`${
+                  value[Object.keys(value)[0]] === this.path ? 'is-active' : ''
+                } `}
+              >
+                <span>
+                  <Link to={value[Object.keys(value)[0]]}>
+                    {Object.keys(value)[0]}
+                  </Link>
+                </span>
+              </StyledSideMenuItem>
+            ))}
+          </ul>
+        </Scrollbars>
       </StyledNav>
     )
   }

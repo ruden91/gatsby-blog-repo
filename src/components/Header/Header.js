@@ -7,13 +7,8 @@ import HeaderSideMenuButton from 'components/Buttons/HeaderSideMenuButton'
 import CloseButton from 'components/Buttons/CloseButton'
 import Logo from 'components/Logo'
 import SearchInput from 'components/Search/SearchInput'
+import { media, Clearfix } from 'styled/utils'
 
-let isMobile
-
-if (typeof window !== 'undefined') {
-  isMobile = window.screen.width < 499
-}
-console.log(isMobile)
 const StyledHeader = styled.header`
   width: 100%;
   height: 70px;
@@ -35,10 +30,25 @@ const StyledLeftSideHolder = styled.div`
   min-width: 115px;
   height: 70px;
   padding: 0 23px;
-  border-right: ${props => (props.isMobile ? 'none' : '1px solid #e6eaea')};
+  border-right: 1px solid #e6eaea;
   color: #202121;
   cursor: pointer;
   overflow: hidden;
+
+  ${media.phone`
+    font-size: 0;
+    min-width: auto;
+    padding: 0;
+    width: 70px;
+    > button {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      span {
+        margin-right:0;
+      }
+    }
+  `};
 `
 
 const StyledRightSideHolder = styled.div`
@@ -55,11 +65,7 @@ const StyledFront = styled.div`
   overflow: auto;
   z-index: 2;
   transform: rotateY(0deg) translateZ(52px);
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
+  ${Clearfix};
 `
 const StyledBack = styled.div`
   width: 100%;
@@ -72,9 +78,21 @@ const StyledBack = styled.div`
   z-index: 2;
   transform: rotateX(-90deg) translateZ(-30px);
 `
+
+const StyledShowCase = styled.div`
+  float: right;
+  ${media.phone`display: none;`};
+`
+
 export default class header extends Component {
   constructor() {
     super()
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
+      console.log(document.querySelector('body').scrollTop)
+    })
   }
 
   render() {
@@ -90,15 +108,14 @@ export default class header extends Component {
       <StyledHeader>
         <StyledRotate toggleRotate={toggleRotate}>
           <StyledFront>
-            <StyledLeftSideHolder isMobile={isMobile}>
-              <HeaderSideMenuButton
-                isMobile={isMobile}
-                onOpenSidebar={onOpenSidebar}
-              />
+            <StyledLeftSideHolder>
+              <HeaderSideMenuButton onOpenSidebar={onOpenSidebar} />
             </StyledLeftSideHolder>
             <Logo />
             <StyledRightSideHolder>
-              <ShowCaseButton isMobile={isMobile} />
+              <StyledShowCase>
+                <ShowCaseButton />
+              </StyledShowCase>
               <SearchButton onHandleSearchButton={onHandleSearchButton} />
             </StyledRightSideHolder>
           </StyledFront>

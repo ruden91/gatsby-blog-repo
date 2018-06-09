@@ -7,7 +7,30 @@ import config from '../../data/SiteConfig'
 import './default.scss'
 import ArticlePreview from '../components/article-preview'
 import Filters from '../components/Filters/Filters'
-// import 'devicon/devicon.css'
+import styled from 'styled-components'
+
+const StyledArticlePreview = styled.ul``
+const StyledGridCol3 = styled.li`
+  float: left;
+  width: 25%;
+  padding-left: 35px;
+  padding-bottom: 35px;
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  @media (max-width: 1461px) {
+    width: 33.3333%;
+  }
+
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  @media (max-width: 1090px) {
+    width: 50%;
+    padding-bottom: 35px;
+  }
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  @media (max-width: 468px) {
+    width: 100%;
+    padding-bottom: 23px;
+  }
+`
 class RootIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -68,15 +91,15 @@ class RootIndex extends React.Component {
           onHandleFilter={this.handleFilterPost}
         />
         <div className="container">
-          <ul className="article-list">
+          <StyledArticlePreview className="article-list">
             {posts.map(({ node }) => {
               return (
-                <li key={node.id} className="col-3">
+                <StyledGridCol3 key={node.id}>
                   <ArticlePreview article={node} />
-                </li>
+                </StyledGridCol3>
               )
             })}
-          </ul>
+          </StyledArticlePreview>
         </div>
       </section>
     )
