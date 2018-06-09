@@ -6,6 +6,11 @@ import './Filters.scss'
 import styled from 'styled-components'
 import { Clearfix } from 'styled/utils'
 const StyledFilters = styled.ul`
+  position: fixed;
+  width: 100%;
+  top: 70px;
+  background-color: #f4f7f6;
+  z-index: 2;
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -25,7 +30,7 @@ const StyledFilter = styled.li`
 
   img {
     width: 15px;
-    height: 42px;
+    height: 43px;
     display: inline-block;
     margin: 0 15px;
   }

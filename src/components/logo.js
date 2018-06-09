@@ -19,7 +19,7 @@ const StyledLogo = styled.h1`
       position: relative;
       float: left;
       font-weight: 700;
-      font-size: 1.3em;
+      font-size: 1em;
       opacity: 1;
       transition: all 0.5s ease-in-out;
       max-width: 2em;
@@ -33,7 +33,7 @@ const StyledLogo = styled.h1`
         height: 5px;
         background-color: #222;
         border-radius: 50%;
-        margin-bottom: 1px;
+        margin-bottom: 0;
         margin-left: 2px;
       }
     }

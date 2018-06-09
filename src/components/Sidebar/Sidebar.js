@@ -12,7 +12,7 @@ const StyledBar = styled.aside`
   top: 0;
   width: 300px;
   background-color: #f4f7f6;
-  height: 100vh;
+  height: 100%;
   overflow: scroll;
   left: ${props => (props.opened ? 0 : '-300px')};
   z-index: 4;

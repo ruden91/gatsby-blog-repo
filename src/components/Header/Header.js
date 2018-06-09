@@ -11,7 +11,7 @@ import { media, Clearfix } from 'styled/utils'
 
 const StyledHeader = styled.header`
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: 70px;
   border-bottom: 1px solid #e6eaea;

@@ -8,7 +8,7 @@ const StyledSearchList = styled.ul`
   top: 70px;
   height: 300px;
   overflow-y: scroll;
-  z-index: 2;
+  z-index: 3;
   background-color: #f4f7f6;
   border-bottom: 1px solid #e6eaea;
 `

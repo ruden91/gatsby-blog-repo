@@ -29,7 +29,7 @@ const StyledArticlePreview = styled.div`
 
 const StyledArticlePreviewLink = styled(Link)`
   color: #454545;
-  text-decoration: none;
+  text-decoration: none !important;
   > div {
     padding: 15px 15px 0 15px;
   }
