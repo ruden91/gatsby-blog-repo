@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Scrollbars } from 'react-custom-scrollbars'
 import Filter from './Filter'
 import FilterImage from 'images/filter.svg'
 import './Filters.scss'

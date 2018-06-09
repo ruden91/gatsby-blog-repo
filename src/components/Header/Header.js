@@ -10,9 +10,12 @@ import SearchInput from 'components/Search/SearchInput'
 import { media, Clearfix } from 'styled/utils'
 
 const StyledHeader = styled.header`
+  position: fixed;
+  z-index: 2;
   width: 100%;
   height: 70px;
   border-bottom: 1px solid #e6eaea;
+  background-color: #f4f7f6;
 `
 const StyledRotate = styled.div`
   width: 100%;
@@ -87,12 +90,6 @@ const StyledShowCase = styled.div`
 export default class header extends Component {
   constructor() {
     super()
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', () => {
-      console.log(document.querySelector('body').scrollTop)
-    })
   }
 
   render() {

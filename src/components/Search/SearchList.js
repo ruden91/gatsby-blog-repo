@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 const StyledSearchList = styled.ul`
   width: 100%;
-  position: absolute;
+  position: fixed;
+  top: 70px;
   height: 300px;
   overflow-y: scroll;
   z-index: 2;

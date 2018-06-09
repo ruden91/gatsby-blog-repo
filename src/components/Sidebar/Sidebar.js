@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const StyledBarContainer = styled.div`
   transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
-  transform: translateX(${props => (!props.opened ? 0 : '300px')});
+  left: ${props => (!props.opened ? 0 : '300px')};
 `
 const StyledBar = styled.aside`
   position: absolute;
@@ -13,18 +13,17 @@ const StyledBar = styled.aside`
   background-color: #f4f7f6;
   height: 100vh;
   overflow: scroll;
-  transform: translateX(-300px);
-  z-index: 2;
+  left: -300px;
+  z-index: 4;
 `
 
 const StyledBarContent = styled.div`
   overflow: hidden;
-  height: ${props => (props.opened ? '100vh' : 'auto')};
 `
 
 const StyledBarContentDim = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   bottom: 0;
