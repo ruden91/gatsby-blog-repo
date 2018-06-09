@@ -2,18 +2,19 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const StyledBarContainer = styled.div`
-  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease-in-out;
   position: relative;
   left: ${props => (!props.opened ? 0 : '300px')};
 `
 const StyledBar = styled.aside`
-  position: absolute;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
   top: 0;
   width: 300px;
   background-color: #f4f7f6;
   height: 100vh;
   overflow: scroll;
-  left: -300px;
+  left: ${props => (props.opened ? 0 : '-300px')};
   z-index: 4;
 `
 
@@ -38,7 +39,7 @@ export default class Sidebar extends Component {
     const { bar, children, opened, onCloseSidebar } = this.props
     return (
       <StyledBarContainer opened={opened}>
-        <StyledBar>{bar}</StyledBar>
+        <StyledBar opened={opened}>{bar}</StyledBar>
         <StyledBarContent opened={opened}>
           {children}
           {opened && <StyledBarContentDim onClick={onCloseSidebar} />}
