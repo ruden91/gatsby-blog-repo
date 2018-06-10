@@ -38,6 +38,18 @@ const StyledPost = styled.div`
     height: 100%;
     object-fit: cover;
   }
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 5px;
+    width: 3px;
+    height: 45px;
+    background-color: #fff;
+    z-index: 3;
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in-out;
+  }
   &:after {
     content: '';
     position: absolute;
@@ -50,6 +62,7 @@ const StyledPost = styled.div`
     z-index: 1;
   }
   p {
+    transition: all 0.3s ease-in-out;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -58,6 +71,15 @@ const StyledPost = styled.div`
     z-index: 2;
     text-align: center;
     width: 150px;
+  }
+
+  &:hover {
+    p {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    &:before {
+      background-color: ${props => props.bgColor};
+    }
   }
 `
 class AchieveIndex extends React.Component {
