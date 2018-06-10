@@ -1,5 +1,5 @@
-const coreData = ['html5', 'css3', 'vue']
-const subData = []
+const coreData = ['html5', 'css3', 'vue', 'sass', 'react', 'javascript']
+const subData = ['typescript', 'd3', 'highcharts', 'webpack', 'firebase']
 
 export const coreTech = coreData.map(item => ({
   name: item,

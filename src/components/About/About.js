@@ -8,6 +8,10 @@ const ScrollOverPack = ScrollAnim.OverPack
 
 const StyledAbout = styled.section`
   margin-top: 70px;
+
+  h2 {
+    border-bottom: none;
+  }
 `
 const StyledBox = styled.div`
   position: relative;
@@ -22,7 +26,6 @@ const StyledBox = styled.div`
   border-radius: 4px;
   background: #019bf0;
 `
-
 export default class About extends Component {
   constructor(props) {
     super(props)
@@ -40,7 +43,6 @@ export default class About extends Component {
         <ScrollOverPack>
           <Tech onHandleSidebar={onHandleSidebar} />
         </ScrollOverPack>
-
         <ScrollOverPack>
           <QueueAnim
             key="queue"

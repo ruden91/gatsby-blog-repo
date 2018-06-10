@@ -5,6 +5,7 @@ import WordCloudChart from 'components/Charts/WordCloudChart'
 import { Clearfix } from 'styled/utils'
 import { coreTech, subTech } from 'components/About/Tech/data'
 import TechItem from 'components/About/TechItem'
+import QueueAnim from 'rc-queue-anim'
 const ScrollParallax = ScrollAnim.Parallax
 
 const StyledSolidBg = styled.div`
@@ -27,10 +28,12 @@ const StyledTech = styled.div`
   ul {
     max-width: 960px;
     margin: 0 auto;
+    padding: 30px 0;
     li {
       float: left;
       width: 33%;
       text-align: center;
+      margin-bottom: 30px;
     }
     ${Clearfix};
   }
@@ -39,11 +42,15 @@ const StyledTech = styled.div`
 const Tech = ({ onHandleSidebar }) => (
   <StyledTech>
     <StyledSolidBg />
+    <h2>대표 기술</h2>
     <ScrollParallax
-      animation={{ opacity: 1 }}
-      style={{ opacity: 0, paddingTop: 60 }}
+      animation={{ x: 0, opacity: 1 }}
+      always={false}
+      style={{
+        transform: 'translateX(-200px)',
+        opacity: 0,
+      }}
     >
-      <h2>대표 기술</h2>
       <ul>
         {coreTech.map(item => (
           <TechItem

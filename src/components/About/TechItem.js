@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 
+const StyledTechItem = styled.li`
+  img {
+    width: 150px;
+    height: 150px;
+  }
+`
 const TechItem = ({ name, image, onHandleSidebar }) => (
-  <li onClick={() => onHandleSidebar(name)}>
+  <StyledTechItem onClick={() => onHandleSidebar(name)}>
     <img src={image} alt={name} />
-  </li>
+  </StyledTechItem>
 )
 
 export default TechItem
