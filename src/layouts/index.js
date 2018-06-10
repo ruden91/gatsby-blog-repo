@@ -30,7 +30,6 @@ class Template extends React.Component<Props, State> {
       content: '',
       toggleRotate: false,
     }
-    this.Sidebar
   }
 
   handleSearchButton = () => {

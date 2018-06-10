@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Intro from 'components/About/Intro'
+import Tech from 'components/About/Tech'
 import styled from 'styled-components'
 import ScrollAnim from 'rc-scroll-anim'
 import QueueAnim from 'rc-queue-anim'
@@ -21,19 +22,26 @@ const StyledBox = styled.div`
   border-radius: 4px;
   background: #019bf0;
 `
-console.log(ScrollAnim)
+
 export default class About extends Component {
   constructor(props) {
     super(props)
   }
 
   render() {
+    const { onHandleSidebar } = this.props
     return (
       <StyledAbout>
+        {/* 자기 소개*/}
         <ScrollOverPack>
           <Intro />
         </ScrollOverPack>
-        <ScrollOverPack style={{ height: 500 }}>
+        {/* 기술스텍 소개 */}
+        <ScrollOverPack>
+          <Tech onHandleSidebar={onHandleSidebar} />
+        </ScrollOverPack>
+
+        <ScrollOverPack>
           <QueueAnim
             key="queue"
             leaveReverse
