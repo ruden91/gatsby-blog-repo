@@ -4,6 +4,7 @@ import Tech from 'components/About/Tech'
 import styled from 'styled-components'
 import ScrollAnim from 'rc-scroll-anim'
 import QueueAnim from 'rc-queue-anim'
+import UserRepos from 'components/GithubRepos/UserRepos'
 const ScrollOverPack = ScrollAnim.OverPack
 
 const StyledAbout = styled.section`
@@ -43,22 +44,7 @@ export default class About extends Component {
         <ScrollOverPack>
           <Tech onHandleSidebar={onHandleSidebar} />
         </ScrollOverPack>
-        <ScrollOverPack>
-          <QueueAnim
-            key="queue"
-            leaveReverse
-            style={{
-              position: 'relative',
-            }}
-          >
-            <StyledBox key="a" />
-            <StyledBox key="b" />
-            <StyledBox key="c" />
-            <StyledBox key="d" />
-            <StyledBox key="e" />
-            <StyledBox key="f" />
-          </QueueAnim>
-        </ScrollOverPack>
+        <UserRepos />
         <ScrollOverPack style={{ height: 500 }}>
           <QueueAnim
             key="queue"
