@@ -27,10 +27,18 @@ const Footer = () => (
       <p>&copy; 2018 Ruden</p>
       <p>
         Powered by
-        <StyledFooterLink href="https://www.gatsbyjs.org/" target="_blank">
+        <StyledFooterLink
+          rel="noopener"
+          href="https://www.gatsbyjs.org/"
+          target="_blank"
+        >
           &nbsp;Gatsby
         </StyledFooterLink>, Theme by
-        <StyledFooterLink href="https://github.com/ruden91" target="_blank">
+        <StyledFooterLink
+          rel="noopener"
+          href="https://github.com/ruden91"
+          target="_blank"
+        >
           &nbsp;Ruden
         </StyledFooterLink>
       </p>

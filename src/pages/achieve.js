@@ -1,4 +1,6 @@
 import React from 'react'
+import config from '../../data/SiteConfig'
+import SEO from '../components/SEO/SEO'
 import Link from 'gatsby-link'
 import { get, uniq, map } from 'lodash'
 import Helmet from 'react-helmet'
@@ -8,6 +10,7 @@ import 'react-id-swiper/src/styles/css/swiper.css'
 import { filter } from 'minimatch'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import randomColor from 'randomcolor'
 
 const StyledContainer = styled.section`
   position: relative;
@@ -42,7 +45,8 @@ const StyledPost = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${props => props.bgColor};
+    opacity: 0.7;
     z-index: 1;
   }
   p {
@@ -69,6 +73,7 @@ class AchieveIndex extends React.Component {
   mapComponent = () => {
     const posts = this.getAchieveItems()
     const params = {
+      lazy: true,
       slidesPerView: 3,
       spaceBetween: 30,
       freeMode: true,
@@ -92,11 +97,10 @@ class AchieveIndex extends React.Component {
           <h2>{item.title}</h2>
           <Swiper {...params}>
             {item.items.map((data, index) => {
-              console.log(data)
               return (
                 <div key={index}>
                   <Link to={`/blog/${data.node.slug}`}>
-                    <StyledPost>
+                    <StyledPost bgColor={randomColor({ luminosity: 'dark' })}>
                       <Img
                         sizes={data.node.heroImage.sizes}
                         alt={data.node.title}
@@ -115,10 +119,14 @@ class AchieveIndex extends React.Component {
 
   render() {
     const posts = this.getAchieveItems()
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    console.log(config)
     return (
       <StyledContainer>
-        <Helmet title={siteTitle} />
+        <Helmet>
+          <title>Achieve | {config.siteTitle}</title>
+          <link rel="canonical" href={`${config.siteUrl}/achieve/`} />
+        </Helmet>
+        <SEO />
         <div>{this.mapComponent()}</div>
       </StyledContainer>
     )
