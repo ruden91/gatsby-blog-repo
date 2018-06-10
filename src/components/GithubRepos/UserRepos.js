@@ -88,6 +88,9 @@ export default class UserRepos extends Component {
       const response = await axios(address)
       const repos = await response.data
 
+      this.setState({
+        repos,
+      })
       localStorage.setItem('items', JSON.stringify(repos))
     } catch (err) {
       console.error(err.message)
@@ -97,11 +100,11 @@ export default class UserRepos extends Component {
   componentDidMount() {
     if (!localStorage.getItem('items')) {
       this.fetchGithubReposData()
+    } else {
+      this.setState({
+        repos: JSON.parse(localStorage.getItem('items')).slice(0, 20),
+      })
     }
-
-    this.setState({
-      repos: JSON.parse(localStorage.getItem('items')).slice(0, 20),
-    })
   }
   render() {
     return (
@@ -114,9 +117,14 @@ export default class UserRepos extends Component {
             style={{
               position: 'relative',
               minHeight: '950px',
+              paddingTop: '50px',
             }}
           >
-            <h2 key="0">현재까지 이런 프로젝트를 해봤습니다.</h2>
+            <h2 key="0">
+              <span>
+                개인 프로젝트를 꾸준히 하며<br />개발 역량을 키우는 중입니다.
+              </span>
+            </h2>
             {this.state.repos.map((item, index) => (
               <StyledRepo key={index + 1}>
                 <div>

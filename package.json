@@ -45,6 +45,7 @@
     "rc-queue-anim": "^1.6.0",
     "rc-scroll-anim": "^2.5.2",
     "react": "^16.4.0",
+    "react-calendar-heatmap": "^1.6.3",
     "react-custom-scrollbars": "^4.2.1",
     "react-devicon": "^0.1.9",
     "react-github-cards": "^1.1.1",

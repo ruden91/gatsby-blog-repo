@@ -26,9 +26,6 @@ const StyledWordDumy = styled.div`
 
 const StyledTech = styled.div`
   ul {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 30px 0;
     li {
       float: left;
       width: 33%;
@@ -42,7 +39,9 @@ const StyledTech = styled.div`
 const Tech = ({ onHandleSidebar }) => (
   <StyledTech>
     <StyledSolidBg />
-    <h2>대표 기술</h2>
+    <h2>
+      <span>실무에서 활용하고 있는 기술스펙</span>
+    </h2>
     <ScrollParallax
       animation={{ x: 0, opacity: 1 }}
       always={false}
@@ -65,7 +64,11 @@ const Tech = ({ onHandleSidebar }) => (
       animation={{ opacity: 1 }}
       style={{ opacity: 0, paddingTop: 60 }}
     >
-      <h2>관심을 갖고 있는 기술</h2>
+      <h2>
+        <span>
+          개인적으로 관심을 갖고 <br />학습하고 있는 기술입니다.
+        </span>
+      </h2>
       <ul>
         {subTech.map(item => (
           <TechItem
