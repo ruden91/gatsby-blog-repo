@@ -13,7 +13,7 @@ React 기반의 GatsbyJS 를 활용한 Static Web Page Blog 개발
   * Styled-Components
 * Contentful (content API)
 * Disqus Comment System
-* PWA (manifes.json, offline support, favicons)
+* PWA
 * Image lazy loading
 
 ### Current Web Performance
